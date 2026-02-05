@@ -6,4 +6,6 @@ public class LoginData
     public string password;
     public bool rememberPw;
     public bool autoLogin;
+
+    public int frontSeverID = 0;
 }

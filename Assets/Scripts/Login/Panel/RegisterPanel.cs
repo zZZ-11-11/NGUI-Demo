@@ -20,6 +20,7 @@ public class RegisterPanel : BasePanel
             }
             if (LoginManager.instance.Register(inputUn.text, inputPw.text))
             {
+                LoginManager.instance.ClearLoginData();
                 var loginPanel = UIManager.instance.ShowPanel<LoginPanel>();
                 loginPanel.SetInfo(inputUn.text, inputPw.text);
                 UIManager.instance.HidePanel<RegisterPanel>();

@@ -28,11 +28,19 @@ public class LoginPanel : BasePanel
         {
             if (LoginManager.instance.CheckInfo(inputName.text, inputPw.text))
             {
-                UIManager.instance.ShowPanel<TipPanel>().ChangeInfo("登录成功");
                 LoginManager.instance.loginData.userName = inputName.text;
                 LoginManager.instance.loginData.password = inputPw.text;
                 LoginManager.instance.SaveLoginData();
                 UIManager.instance.HidePanel<LoginPanel>();
+                if (LoginManager.instance.loginData.frontSeverID == 0)
+                {
+                    UIManager.instance.ShowPanel<ChooseServerPanel>();
+                }
+                else
+                {
+                    UIManager.instance.ShowPanel<ServerPanel>();
+                }
+                UIManager.instance.ShowPanel<TipPanel>().ChangeInfo("登录成功");
             }
             else
             {
